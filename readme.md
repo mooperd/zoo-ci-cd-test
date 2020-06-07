@@ -6,7 +6,7 @@ Setup:
 Requires python 3
 
 Install dependencies:
-`pip install sqlalchemy flask flask-cors`
+`pip install gunicorn sqlalchemy flask flask-cors`
 Setup Test database:
 `python3 data.py`
 Run API:
