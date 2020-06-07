@@ -9,6 +9,10 @@ from sqlalchemy import exc
 app = Flask(__name__)
 CORS(app)
 
+@app.route('/ping', methods=['GET'])
+def ping():
+        return "pong"
+
 @app.route('/genus', methods=['POST'])
 def add_genus():
     session = dbconnect()

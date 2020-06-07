@@ -1,0 +1,40 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: ${SERVICE_NAME}
+  labels:
+    app: ${SERVICE_NAME}
+spec:
+  replicas: 1
+  revisionHistoryLimit: 5
+  template:
+    metadata:
+      name: ${SERVICE_NAME}
+      labels:
+        app: ${SERVICE_NAME}
+        tier: web
+    spec:
+      containers:
+        - name: ${SERVICE_NAME}
+          image: ${BUILD_IMAGE}
+          imagePullPolicy: Always
+          envFrom:
+          - configMapRef:
+              name: ${SERVICE_NAME}-env
+          ports:
+          - name: web
+            containerPort: 8080
+          livenessProbe:
+            httpGet:
+              path: /ping
+              port: 8080
+            initialDelaySeconds: 5
+            timeoutSeconds: 3
+          readinessProbe:
+            httpGet:
+              path: /ping
+              port: 8080
+            initialDelaySeconds: 5
+            timeoutSeconds: 3
+

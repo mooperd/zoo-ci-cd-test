@@ -1,2 +1,2 @@
 #!/bin/bash
-exec gunicorn -b :5000 --access-logfile - --error-logfile - wsgi:app
+exec gunicorn -b :8080 --access-logfile - --error-logfile - wsgi:app
