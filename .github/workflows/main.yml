@@ -38,7 +38,7 @@ jobs:
         export $SERVICE_NAME="${GITHUB_REPOSITORY##*/}-${GITHUB_REF##*/}"
         echo "::set-env name=SERVICE_NAME::$SERVICE_NAME"
  
-   - name: Checkout
+    - name: Checkout
       uses: actions/checkout@v2
 
     - name: Env
