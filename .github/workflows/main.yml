@@ -22,8 +22,7 @@ env:
   GKE_EMAIL: ${{ secrets.GKE_EMAIL }}
   GITHUB_SHA: ${{ github.sha }}
   GKE_ZONE: europe-west1-c
-  GKE_CLUSTER: example-gke-cluster
-  IMAGE: gke-test
+  GKE_CLUSTER: cluster-1
   REGISTRY_HOSTNAME: gcr.io
   DEPLOYMENT_NAME: gke-test
 
