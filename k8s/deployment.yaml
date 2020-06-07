@@ -19,9 +19,6 @@ spec:
         - name: ${SERVICE_NAME}
           image: ${BUILD_IMAGE}
           imagePullPolicy: Always
-          envFrom:
-          - configMapRef:
-              name: ${SERVICE_NAME}-env
           ports:
           - name: web
             containerPort: 8080
