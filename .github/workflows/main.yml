@@ -26,7 +26,6 @@ env:
   IMAGE: gke-test
   REGISTRY_HOSTNAME: gcr.io
   DEPLOYMENT_NAME: gke-test
-  SERVICE_NAME: ${GITHUB_REPOSITORY##*/}-${GITHUB_REF##*/}
 
 jobs:
   setup-build-publish-deploy:
