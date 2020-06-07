@@ -76,7 +76,8 @@ jobs:
     - name: Deploy
       run: |
         gcloud container clusters get-credentials $GKE_CLUSTER --zone $GKE_ZONE --project $GKE_PROJECT
+        cat k8s/namespace.yml | envsubst
+        cat k8s/namespace.yml | envsubst | kubectl apply -f -
         cat k8s/deployment.yaml | envsubst
         cat k8s/deployment.yaml | envsubst | kubectl apply -n $NAMESPACE -f -
-        kubectl rollout status deployment/$SERVICE_NAME
-        kubectl get services -o wide
+        kubectl rollout status deployment/$SERVICE_NAME -n $NAMESPACE
