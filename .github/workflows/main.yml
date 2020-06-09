@@ -42,6 +42,9 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
+    - name: Tests
+      run: python3 tests.py
+
     - name: Env
       run: |
         env
